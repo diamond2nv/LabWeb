@@ -1,2 +1,2 @@
 # LabWeb
- Websocket  LabVIEW &lt;--> Python Tornado &lt;--> JavaScript HTML5 or React-Native
+ Websocket or MQTT &lt;--> Python Tornado (Bokeh) &lt;--> JavaScript HTML5 or React-Native
