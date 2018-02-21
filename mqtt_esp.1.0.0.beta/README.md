@@ -2,14 +2,22 @@
 ESP8266 with K Thermocouple 、SHT20/30 、RTC DS3231 & MQTT @ 1Hz
 ESP8266端精密1Hz采样的MQTT热电偶温度、环境温湿度实时采集
 
+1. 使用了 mosca （node.js运行的MQTT Server），目前请把本项目只应用在受路由器隔离保护的局域网端口，也顺便省去了测试umqtt模块应用ssl证书代码运行情况的时间：https://github.com/micropython/micropython-lib，esp8266只发送数据，不接受网络用户数据，也没有设置mqtt的订阅用户名、密码，并且请仅用受路由器隔离保护的局域网端口！！
+
+外网访问：可再配置一个mqtt转发服务器，添加用户订阅权限以及密码控制，并一定要通过SSL/TLS加密开放端口来访问
+
+2. （电脑 或 树莓派）Python记录数据使用paho-mqtt、pytables (HDF5) 模块。
+
 ## 目前测试结果：
 要求：较强的Wifi网络或局域网环境。
 
 Wifi environment can not be weak ！
 
-v1.0.0很好地运行，已满足超长期实验测量需求（2^32 - 65556 seconds），一定时间内断网可自动恢复，FIFO缓冲队列未太满情况下，数据采集不受影响；
+v1.0.0.beta 很好地运行，已满足超长期实验测量需求（2^32 - 65556 seconds），一定时间内断网可自动恢复，FIFO缓冲队列未太满情况下，数据采集不受影响；
 
-Version v0.9.7 can run steadily for long-long time experiment. The network disconnection can be automatically resumed within a certain period of time. The data acquisition is not affected when the FIFO buffer queue is not too full.
+Version v1.0.0.beta can run steadily for long-long time experiment. The network disconnection can be automatically resumed within a certain period of time. The data acquisition is not affected when the FIFO buffer queue is not too full.
+
+![diamond2nv_github_2017-12-11](diamond2nv_github_2017-12-11.png)
 
 ## 版本历史：
 
@@ -90,6 +98,8 @@ In order to reduce the occupation of "memory" space, the program has removed alm
 SHT20, SHT30, MAX6675, DS3231、MQTT、NTP module library files all come from GitHub's related personnel
 (Under MIT License or BSD License)
 Thanks!
+
+![esp8266_12E_NodeMCU](esp8266_12E_NodeMCU.png)
 
 ### Wifi - boot.py
 wlan.connect('', '') # ssid,password
@@ -182,6 +192,7 @@ Official English Version is in http://docs.micropython.org/en/latest/esp8266/esp
 ```
 按下Flash按钮,然后RST按钮，过个3s先释放RST后再释放Flash按钮，这样deteched info区域就有信息，才能进入刷固件或擦除Flash模式，否则进入App模式
 ```
+![esp8266_2102](esp8266_2102.jpg)
 
 ### 0、CP2102 usb转串口 驱动
  https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
