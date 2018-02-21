@@ -130,7 +130,7 @@ def main():
     client.on_message = on_message
     global f_hdf
     with pd.HDFStore("Seconds.hdf5","a", complevel=9, complib='zlib') as f_hdf:
-        client.connect("222.195.68.253", port=1883,keepalive=0)
+        client.connect("*.*.*.*", port=1883,keepalive=0) # *.*.*.* your mqtt server IP
         client.loop_forever()
 
 
