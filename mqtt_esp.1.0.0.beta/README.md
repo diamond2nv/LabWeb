@@ -2,11 +2,13 @@
 ESP8266 with K Thermocouple 、SHT20/30 、RTC DS3231 & MQTT @ 1Hz
 ESP8266端精密1Hz采样的MQTT热电偶温度、环境温湿度实时采集
 
-1. 使用了 mosca （node.js运行的MQTT Server），目前请把本项目只应用在受路由器隔离保护的局域网端口，也顺便省去了测试umqtt模块应用ssl证书代码运行情况的时间：https://github.com/micropython/micropython-lib，esp8266只发送数据，不接受网络用户数据，也没有设置mqtt的订阅用户名、密码，并且请仅用受路由器隔离保护的局域网端口！！
+1. 使用了 mosca （node.js运行的MQTT Server），目前请把本项目只应用在受路由器隔离保护的局域网端口，也顺便省去了测试umqtt模块应用ssl证书代码运行情况的时间：https://github.com/micropython/micropython-lib 
+
+2. esp8266只发送数据，不接受网络用户数据，也没有设置mqtt的订阅用户名、密码，并且请仅用受路由器隔离保护的局域网端口！！
 
 外网访问：可再配置一个mqtt转发服务器，添加用户订阅权限以及密码控制，并一定要通过SSL/TLS加密开放端口来访问
 
-2. （电脑 或 树莓派）Python记录数据使用paho-mqtt、pytables (HDF5) 模块。
+3. （电脑 或 树莓派）Python记录数据使用paho-mqtt、pytables (HDF5) 模块。
 
 ## 目前测试结果：
 要求：较强的Wifi网络或局域网环境。
