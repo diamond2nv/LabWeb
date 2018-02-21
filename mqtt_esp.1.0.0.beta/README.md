@@ -2,7 +2,7 @@
 ESP8266 with K Thermocouple 、SHT20/30 、RTC DS3231 & MQTT @ 1Hz
 ESP8266端精密1Hz采样的MQTT热电偶温度、环境温湿度实时采集
 
-1. **min_esp文件夹**内程序正常运行后，esp8266只发送数据，不接受网络用户数据，也没有设置mqtt的订阅用户名、密码，并且请仅用受路由器隔离保护的局域网端口！！
+1. **min_esp文件夹**内的micropython程序正常运行后，esp8266只发送数据，不接受网络用户数据，也没有设置mqtt的订阅用户名、密码，并且请仅用受路由器隔离保护的局域网端口！！
 
 1. （电脑 或 树莓派）Python记录数据使用paho-mqtt、pytables (HDF5) 模块，**min_hdf5文件夹**下esp_pytables.x.x.py提供初步的数据记录程序，一般在安装Anaconda 64bit python 3.6 后运行。
 
