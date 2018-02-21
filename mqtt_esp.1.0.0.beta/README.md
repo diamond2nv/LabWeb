@@ -2,19 +2,21 @@
 ESP8266 with K Thermocouple 、SHT20/30 、RTC DS3231 & MQTT @ 1Hz
 ESP8266端精密1Hz采样的MQTT热电偶温度、环境温湿度实时采集
 
-1. 使用了 mosca （node.js运行的MQTT Server），目前请把本项目只应用在受路由器隔离保护的局域网端口，也顺便省去了测试umqtt模块应用ssl证书代码运行情况的时间：https://github.com/micropython/micropython-lib 
+1. 使用了 mosca （node.js运行的MQTT Server，Win电脑端安装node.js及mosca模块后，运行CMD：“mosca -c test.js -v | bunyan”，**min_mqtt文件夹**下runmqtt.bat与runbat.vbs路径描述正确后，可作为系统服务自动运行MQTT Server），目前请把本项目只应用在受路由器隔离保护的局域网端口，也顺便省去了测试umqtt模块应用ssl证书代码运行情况的时间：https://github.com/micropython/micropython-lib 
 
 2. esp8266只发送数据，不接受网络用户数据，也没有设置mqtt的订阅用户名、密码，并且请仅用受路由器隔离保护的局域网端口！！
 
 外网访问：可再配置一个mqtt转发服务器，添加用户订阅权限以及密码控制，并一定要通过SSL/TLS加密开放端口来访问
 
-3. （电脑 或 树莓派）Python记录数据使用paho-mqtt、pytables (HDF5) 模块。
+3. （电脑 或 树莓派）Python记录数据使用paho-mqtt、pytables (HDF5) 模块，**min_hdf5文件夹**下esp_pytables.x.x.py提供初步的数据记录程序，一般在安装Anaconda 64bit python 3.6 后运行。
 
 ## 目前测试结果：
 
-## 要求：较强的Wifi网络或局域网环境；配置好wifi名称和密码；配置好MQTT Server与其IP地址（局域网）。
+## 要求：
+较强的Wifi网络或局域网环境；配置好wifi名称和密码；配置好MQTT Server与其IP地址（局域网）。
 
-## 使用：按要求修改配置好；esp8266的Pin(13)接地，RST按键后不自动运行，方便调试, 之后上传min_esp文件夹内文件到esp8266模块（micropython >= 1.9.3）； 最后Pin(13）空接或接VCC（+3.3V），让my_app.py运行。
+## 使用：
+按要求修改配置好；esp8266的Pin(13)接地，RST按键后不自动运行，方便调试, 之后上传**min_esp文件夹**内文件到esp8266模块（micropython >= 1.9.3）； 最后Pin(13）空接或接VCC（+3.3V），让my_app.py运行。
 
 Wifi environment can not be weak ！
 
