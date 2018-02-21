@@ -2,13 +2,13 @@
 ESP8266 with K Thermocouple 、SHT20/30 、RTC DS3231 & MQTT @ 1Hz
 ESP8266端精密1Hz采样的MQTT热电偶温度、环境温湿度实时采集
 
-1. 使用了 mosca ，可用mqtt-spy-1.0.0.jar查看消息（node.js运行的MQTT Server，Win电脑端安装node.js及mosca模块后，运行CMD：“mosca -c test.js -v | bunyan”，**min_mqtt文件夹**下runmqtt.bat与runbat.vbs路径描述正确后，可作为系统服务自动运行MQTT Server），目前请把本项目只应用在受路由器隔离保护的局域网端口，也顺便省去了测试umqtt模块应用ssl证书代码运行情况的时间：https://github.com/micropython/micropython-lib 
+1. **min_esp文件夹**内程序正常运行后，esp8266只发送数据，不接受网络用户数据，也没有设置mqtt的订阅用户名、密码，并且请仅用受路由器隔离保护的局域网端口！！
 
-2. esp8266只发送数据，不接受网络用户数据，也没有设置mqtt的订阅用户名、密码，并且请仅用受路由器隔离保护的局域网端口！！
+1. （电脑 或 树莓派）Python记录数据使用paho-mqtt、pytables (HDF5) 模块，**min_hdf5文件夹**下esp_pytables.x.x.py提供初步的数据记录程序，一般在安装Anaconda 64bit python 3.6 后运行。
 
-外网访问：可再配置一个MQTT Server来转发消息（如：mosquitto），添加用户订阅权限以及密码控制，并一定要通过SSL/TLS加密开放端口来访问
+1. **min_mqtt文件夹**下使用了 mosca ，可用mqtt-spy-1.0.0.jar查看消息（node.js运行的MQTT Server，Win电脑端安装node.js及mosca模块后，运行CMD：“mosca -c test.js -v | bunyan”，runmqtt.bat与runbat.vbs路径描述正确后，可作为系统服务自动运行MQTT Server），目前请把本项目只应用在受路由器隔离保护的局域网端口，也顺便省去了测试umqtt模块应用ssl证书代码运行情况的时间：https://github.com/micropython/micropython-lib 
 
-3. （电脑 或 树莓派）Python记录数据使用paho-mqtt、pytables (HDF5) 模块，**min_hdf5文件夹**下esp_pytables.x.x.py提供初步的数据记录程序，一般在安装Anaconda 64bit python 3.6 后运行。
+*外网访问：可再配置一个MQTT Server来转发消息（如：mosquitto），添加用户订阅权限以及密码控制，并一定要通过SSL/TLS加密开放端口来访问*
 
 ## 目前测试结果：
 
@@ -96,15 +96,16 @@ v0.9.4方法，用另外一个全局变量"thr"int补充记录——即"id"达�
 
 
 ## Defines & Pins - 
-为了减少占用“内存”空间，程序中已移除几乎所有的空格、注释，
-SHT20、SHT30、MAX6675、DS3231、MQTT、NTP等模块的库文件全部来自GitHub相关人员
-（Under MIT License or BSD License），
-特此感谢！
 
-In order to reduce the occupation of "memory" space, the program has removed almost all the spaces, notes,
-SHT20, SHT30, MAX6675, DS3231、MQTT、NTP module library files all come from GitHub's related personnel
+**为了减少占用“内存”空间，程序中已移除几乎所有的空格、注释，
+SHT20、SHT30、MAX6675、DS3231、MQTT、NTP等模块的库文件（modules文件夹）全部来自GitHub相关人员
+（Under MIT License or BSD License），
+特此感谢！**
+
+**In order to reduce the occupation of "memory" space, the program has removed almost all the spaces, notes,
+SHT20, SHT30, MAX6675, DS3231、MQTT、NTP module library files （in '/modules'） all come from GitHub's related personnel
 (Under MIT License or BSD License)
-Thanks!
+Thanks!**
 
 ![esp8266_12E_NodeMCU](esp8266_12E_NodeMCU.png)
 
