@@ -20,9 +20,9 @@ ESP8266端精密1Hz采样的MQTT热电偶温度、环境温湿度实时采集
 
 Wifi environment can not be weak ！
 
-v1.0.0.beta 很好地运行，已满足超长期实验测量需求（2^32 - 65556 seconds），一定时间内断网可自动恢复，FIFO缓冲队列未太满情况下，数据采集不受影响；
+v1.0.0.beta 很好地运行，已满足长期实验测量需求（2^32 - 65556 seconds），一定时间内断网可自动恢复，FIFO缓冲队列未太满情况下，数据采集不受影响；
 
-Version v1.0.0.beta can run steadily for long-long time experiment. The network disconnection can be automatically resumed within a certain period of time. The data acquisition is not affected when the FIFO buffer queue is not too full.
+Version v1.0.0.beta can run steadily for long time experiment. The network disconnection can be automatically resumed within a certain period of time. The data acquisition is not affected when the FIFO buffer queue is not too full.
 
 ![diamond2nv_github_2017-12-11](diamond2nv_github_2017-12-11.png)
 
@@ -80,20 +80,17 @@ The network disconnection can be automatically resumed within a certain period o
 测试结果：发现还是收到16bit int限制，
 但在Micropython交互界面测试，print整数可超过64 bit。
 可能是umqtt.simple、内存的限制，也可能是交互界面的特殊提升int位数，
-也许还是用v0.9.4方法，另外一个"thr"int——即"id"达到43200（12小时）后清零（"thr += 1"），再重复+1步进。
-
 
 也可以加一个软件复位：
 machine.reset()——
 好处是：重启清空内存、初使化能同步NTP时间；
 坏处是：交换界面反复输入reset()测试时，偶尔reset()不成功。
 
-
 ### v0.9.4
 
 v0.9.4方法，用另外一个全局变量"thr"int补充记录——即"id"达到43200（12小时）后清零（"thr += 1"），再重复"id += 1"步进
 
-
+测试结果：发现还是收到16bit int限制
 
 ## Defines & Pins - 
 
