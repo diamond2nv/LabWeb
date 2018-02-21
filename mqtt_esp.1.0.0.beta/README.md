@@ -11,7 +11,7 @@ ESP8266端精密1Hz采样的MQTT热电偶温度、环境温湿度实时采集
 3. （电脑 或 树莓派）Python记录数据使用paho-mqtt、pytables (HDF5) 模块。
 
 ## 目前测试结果：
-要求：较强的Wifi网络或局域网环境。
+要求：较强的Wifi网络或局域网环境，配置好wifi名称和密码，配置好MQTT Server与其IP地址（局域网）。
 
 Wifi environment can not be weak ！
 
