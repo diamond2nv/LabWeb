@@ -1,4 +1,4 @@
-# LabWeb 项目介绍
+# LabWeb 项目—— mqtt_esp 介绍
 ESP8266 with K Thermocouple 、SHT20/30 、RTC DS3231 & MQTT @ 1Hz
 ESP8266端精密1Hz采样的MQTT热电偶温度、环境温湿度实时采集
 
