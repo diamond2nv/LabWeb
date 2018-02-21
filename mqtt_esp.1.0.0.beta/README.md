@@ -6,7 +6,7 @@ ESP8266端精密1Hz采样的MQTT热电偶温度、环境温湿度实时采集
 
 1. （电脑 或 树莓派）Python记录数据使用paho-mqtt、pytables (HDF5) 模块，**min_hdf5文件夹**下esp_pytables.x.x.py提供初步的数据记录程序，一般在安装Anaconda 64bit python 3.6 后运行。
 
-1. **min_mqtt文件夹**下使用了 mosca ，可用mqtt-spy-1.0.0.jar查看消息（node.js运行的MQTT Server，Win电脑端安装node.js及mosca模块后，运行CMD：“mosca -c test.js -v | bunyan”，runmqtt.bat与runbat.vbs路径描述正确后，可作为系统服务自动运行MQTT Server），目前请把本项目只应用在受路由器隔离保护的局域网端口，也顺便省去了测试umqtt模块应用ssl证书代码运行情况的时间：https://github.com/micropython/micropython-lib 
+1. **min_mqtt文件夹**下使用了 mosca ，可用mqtt-spy-1.0.0.jar查看消息。mosca是JavaScript写的MQTT Server，Win电脑端安装node.js及mosca模块后，运行CMD：“mosca -c test.js -v | bunyan”，runmqtt.bat与runbat.vbs路径描述正确后，可作为系统服务自动运行MQTT Server。目前请把本项目只应用在受路由器隔离保护的局域网端口，也顺便省去了测试umqtt模块应用ssl证书代码运行情况的时间：https://github.com/micropython/micropython-lib 
 
 *外网访问：可再配置一个MQTT Server来转发消息（如：mosquitto），添加用户订阅权限以及密码控制，并一定要通过SSL/TLS加密开放端口来访问*
 
