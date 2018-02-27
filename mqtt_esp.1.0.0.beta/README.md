@@ -1,6 +1,11 @@
 # LabWeb 项目之—— mqtt_esp 介绍
+
 ESP8266 with K Thermocouple 、SHT20/30 、RTC DS3231 & MQTT @ 1Hz
+
 ESP8266端精密1Hz采样的MQTT热电偶温度、环境温湿度实时采集
+
+MIT License
+Copyright (c) 2018
 
 1. **min_esp文件夹**内的micropython程序正常运行后，esp8266只发送数据，不接受网络用户数据，也没有设置mqtt的订阅用户名、密码，并且请仅用受路由器隔离保护的局域网端口！！
 
