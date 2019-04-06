@@ -33,6 +33,8 @@ Version v1.0.0.beta can run steadily for long time experiment. The network disco
 
 ***上图传感器数据波动问题，可以用卡尔曼滤波解决（预测、实时）***
 
+------
+
 ## 版本历史：
 
 ### v0.9.8
